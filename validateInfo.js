@@ -8,7 +8,7 @@ function validateEmail() {
     // rest of email format after '@' symbol - [a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 
     if(!aggie.match(emailFormat)) {
-        alert("Please enter your aggie email.");
+        alert("Please enter a vaild aggie email.");
         return false;
     }
 }
