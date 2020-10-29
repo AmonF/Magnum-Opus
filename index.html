@@ -223,6 +223,7 @@
 	<div id="sBox">
 		<div class="SceneS">
 <!--			<div class="caption" id="cI">Please Wait to Enter..</div>-->
+			<button class="home"><img class="house" src="house.png"></button> 
 			<div id="countBox">
 				<div id="count">0</div>
 				<div id="UpDownBox">
@@ -284,7 +285,7 @@
 		$(".Scene" + (scene + 1)).hide().delay(400).css("visibility","visible").fadeIn(300);
 		scene++;
 		
-		if(scene == 3){
+		if($('div').attr('id') == 'access'){
 			$("#bg01").delay(750).fadeOut(2000);
 			$("#bg02").delay(750).fadeOut(2000);
 		}
@@ -316,6 +317,12 @@
 		$(".Scene1").fadeIn(300); // fade in scene 1
 		$(".Scene" + scene).fadeOut(300); // fade out current scene
 		scene = 1;
+
+		if (scene == 'S'){
+			$(".Scene1").fadeIn(300); // fade in scene 1
+		$(".Scene" + scene).fadeOut(300); // fade out current scene
+		scene = 1;
+		}
 	}
 	
 	function update(t){ // reset the clock
@@ -413,7 +420,12 @@
 	});	
 	
 	$("#down").click(function(){
-		count--;
+		if(count == 0){
+			count =0;
+		} else{
+			count--;
+		}
+		
 		$("#count").text(count);
 	});
 	
