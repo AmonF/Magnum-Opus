@@ -2,23 +2,6 @@
 /* CSS Document */
 
 
-@-webkit-keyframes colorPulse { /* Background Color Animation */
-  0% {background-color: #718CFF;}
-  20% {background-color: #43D788;}
-  40% {background-color: #FFE640;}
-  60% {background-color: #FF6746;}
-  80% {background-color: #DF6CFF;}
-  100% {background-color: #718CFF;}
-}
-
-@-webkit-keyframes fade { /* Background Color Animation */
-  0% {opacity: 1;}
-  0.39% {opacity: 1;}
-  20% {opacity: 0;}
-  80.89% {opacity: 0;}
-  100% {opacity: 1;}
-}
-
 @-webkit-keyframes start {
   from {color: #2ee600; text-shadow: 6px 10px 5px black;}
   to {color: white;}
@@ -33,36 +16,24 @@
 }
 
 /*
-@keyframes blur {
-	from: {filter: blur(0px)};
-	to: {filter: blur(8px)};
-}
-*/
-
-body {
-	--deg: 180deg;
-	margin: 0px;
-	background-color: black;
-	animation: colorPulse 20s linear infinite normal;
-	
-}
-
-/*
 =================================================================================================
 ===================================  Pretty Background  =========================================
 =================================================================================================
 */
 
-#blur {
-	filter: blur(300px);
+body {
+	margin: 0px;
+	background-color: black;
 }
 
 .bg {
 	width: 100%;
 	height: 100vh;	
 	position: absolute;
-/*	filter: hue-rotate(var(--deg));*/
-	animation: fade 20s linear infinite normal;
+	align-content: center;
+	justify-content: center;
+	display: flex;
+	overflow: hidden;
 }
 
 #bg0 {
@@ -74,46 +45,32 @@ body {
 }
 
 #bg01 {
-	animation: none;
-	background-image: linear-gradient(var(--deg),#55d743, #caff40);
+	width: 100%;
+	height: 100vh;	
+	background-image: linear-gradient(180deg,#55d743, #caff40);
 	z-index: 0;
 	opacity: 1;
+	filter: blur(300px);
 }
 
 #bg02 {
-	animation: none;
+	width: 100%;
+	height: 100vh;	
 	background-color: #3bbd1a;
 	z-index: -1;
 	opacity: 1;
 }
 
 #bg1 {
-	z-index: -1;
-	background-image: linear-gradient(var(--deg),#718CFF, #43d7d7);
+	position: absolute;
+	z-index: -3;
 }
 
 #bg2 {
+	position: absolute;
 	z-index: -2;
-	background-image: linear-gradient(var(--deg),#43D788, #9cff40);
-	animation-delay: 5.1s;
-}
-
-#bg3 {
-	z-index: -3;
-	background-image: linear-gradient(var(--deg),#FFE640, #ffb546);
-	animation-delay: 10.2s;
-}
-
-#bg4 {
-	z-index: -4;
-	background-image: linear-gradient(var(--deg),#FF6746, #ff46e9);
-	animation-delay: 15.3s
-}
-
-#bg5 {
-	z-index: -5;
-	background-image: linear-gradient(var(--deg),#DF6CFF, #7e6cff);
-	animation-delay: 20.4s;
+	filter: contrast(85%) blur(300px) saturate(200%) brightness(120%) hue-rotate(25deg);
+	opacity: 0.95;
 }
 
 /*
@@ -338,21 +295,23 @@ body {
 	top: 265px;
 	width: 100%;
 	height: 450px;
-	padding-right: 25px;
-	
-	box-sizing: border-box;
-	justify-content: flex-start;
 	align-content: center;
-	display: flex;
-	overflow-x: auto;
-	overflow-y: hidden;
+	
+
 	background-color: rgba(198,198,198,0.60);
 	border-bottom: 10px solid rgba(50,50,50,0.7);
 	border-top: 7px solid rgba(50,50,50,0.7);
 }
 
-#carousel::-webkit-scrollbar {
-  display: none;
+#caroContainer {	
+	height: 435px;
+	justify-content: flex-start;
+	align-content: center;
+	display: flex;
+	overflow-x: auto;
+	overflow-y: hidden;
+	margin-top: 4px;
+	margin-bottom: 20px;
 }
 
 .raffle {
@@ -376,6 +335,16 @@ body {
 	flex-shrink: 0;
 }
 
+.spacer {
+	display: inline-block;
+	height: 370px;
+	width: 4px;
+	margin: 40px 0px;
+	border-radius: 20px;
+	background-color: transparent;
+	flex-shrink: 0;
+}
+
 .prize {
 	position: relative;
 	font-size: 25px;
@@ -388,6 +357,27 @@ body {
 	right: 8px;
 }
 
+/* width */
+::-webkit-scrollbar {
+	height: 10px;
+	margin-bottom: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	color: transparent; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: rgba(95,95,95,.35);
+	border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:active {
+	background: rgba(50,50,50,.4); 
+}
 /*
 =================================================================================================
 =======================================  Scene T  ===============================================
@@ -458,6 +448,7 @@ body {
 #countBox {
 	display: flex;
 	position: absolute;
+	top: 300px;
 }
 
 .SceneS {
@@ -470,7 +461,9 @@ body {
 	position: absolute;
 	line-height: 600px;
 	z-index: 5;
-	background-color: rgba(0,0,0,0.90);
+	background-color: rgba(198,198,198,0.60);
+	border-left: 10px solid rgba(50,50,50,0.7);
+	border-right: 10px solid rgba(50,50,50,0.7);
 }
 
 #count {
@@ -491,9 +484,17 @@ body {
 	margin-bottom: 10px; 
 }
 
+#up:hover {
+	transform: translateY(0);
+}
+
 #down {
 	border-bottom-left-radius: 30px;
 	border-bottom-right-radius: 30px;
+}
+
+#down:hover{
+	transform: translateY(0);
 }
 
 /*
@@ -557,8 +558,14 @@ input {
 }
 
 button:active {
-	box-shadow: inset 0 0 15px #383838;
-	background: grey; 
+	box-shadow: var(--shadow-hover), inset 0 0 40px #383838;
+	background-color: rgb(0,0,0); 
+	--dark: rgb(60,60,60);
+}
+
+polygon {
+	fill: var(--dark) !important;
+	transition: fill var(--duration) ease, -webkit-transform var(--duration) ease;
 }
 /*
 =================================================================================================
@@ -584,11 +591,12 @@ button:active {
 }
 
 button {
+  --dark: grey;
   --text: #FFF;
   --font-size: 45px;
   --duration: .5s;
   --shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.5);
-  --shadow-hover: 0 4px 20px -2px rgba(0, 0, 0, 1);
+  --shadow-hover: 0 4px 15px -2px rgba(0, 0, 0, 1);
   padding: 16px 32px;
   font-family: 'Fredoka One', cursive;
   line-height: var(--font-size);
@@ -602,14 +610,24 @@ button {
   background: #383838;
   color: var(--text);
   box-shadow: var(--shadow);
-  -webkit-transform: translateY(var(--y));
-          transform: translateY(var(--y));
+
   -webkit-transition: box-shadow var(--duration) ease, -webkit-transform var(--duration) ease;
   transition: box-shadow var(--duration) ease, -webkit-transform var(--duration) ease;
+  transition: background-color var(--duration) ease, -webkit-transform var(--duration) ease;
   transition: transform var(--duration) ease, box-shadow var(--duration) ease;
   transition: transform var(--duration) ease, box-shadow var(--duration) ease, -webkit-transform var(--duration) ease;
   -webkit-tap-highlight-color: transparent;
   -webkit-appearance: none;
+}
+
+button.next {
+  -webkit-transform: translateY(var(--y));
+          transform: translateY(var(--y));
+}
+
+button.enter {
+  -webkit-transform: translateY(var(--y));
+          transform: translateY(var(--y));
 }
 
 #start div {
