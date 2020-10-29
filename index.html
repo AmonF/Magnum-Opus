@@ -4,8 +4,6 @@
 <meta charset="utf-8">
 <title>Magnum Opus</title>
 <link href="Opus.css" rel="stylesheet" type="text/css">
-<!--Timothy's addition-->
-<script type="text/javascript" src="validateInfo.js"></script>
 	
 <!-- fonts	-->
 <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
@@ -15,19 +13,20 @@
 
 <body>
 <!------------------------------------- Pretty Background ------------------------------------------>
+	<div class="bg" id="bg01"></div>
 	<div class="bg" id="bg02"></div>
-	<div id="blur">
-		<div class="bg" id="bg01"></div>
-		<div class="bg" id="bg1"></div>
-		<div class="bg" id="bg2"></div>
-		<div class="bg" id="bg3"></div>
-		<div class="bg" id="bg4"></div>
-		<div class="bg" id="bg5"></div>
+	<div class="bg">
+		<video id="bg1" loop>
+  			<source src="background fade.mp4" type="video/mp4">
+		</video>		
+		<video id="bg2" loop>
+  			<source src="gradient fade.mp4" type="video/mp4">
+		</video>
 	</div>
 	
 <!------------------------------------------ SCENE 1 ----------------------------------------------->
 	
-	<div class="Scene1"> <!-- each screen is a different page -->
+	<div class="Scene1">  <!--each screen is a different page---> 
 		<button id="info">i</button>
 		<button class="sponsor" id="s1">Sponsor a Raffle</button>
 		<div class="bg" id="bg0"></div>
@@ -72,70 +71,133 @@
 			<input type="text" placeholder="example@aggies.ncat.edu" disabled	 />
 		</form>
 		<div id="carousel">
+			<div id="caroContainer">
+				<div class="line"></div>
 
-			<div class="line"></div>
+				<div class="raffle" value="1">
+					<div class="caption c3">$100</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/800 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="120" type="submit">enter</button>
+					<!-- value is the duration -->
+				</div>
 
-			<div class="raffle">
-				<div class="caption c3">$100</div>
-				<div class="prize caption"> prize! </div>
-				<div class="captionB t3"> 0/300 </div>
-				<div class="captionB t32"> entrants </div>
-				<button class="enter" value="120" type="submit">enter</button>
-				<!-- value is the duration -->
+				<div class="line"></div>
+
+				<div class="raffle" value="2">
+					<div class="c3 caption">$50</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/400 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="60" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="3">
+					<div class="caption c3">$25</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/200 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="4">
+					<div class="caption c3">$30</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/240 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="5">
+					<div class="caption c3">$60</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/480 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="6">
+					<div class="caption c3">$10</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/80 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+				
+				<div class="line"></div>
+				
+				<div class="raffle" value="1">
+					<div class="caption c3">$100</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/800 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="120" type="submit">enter</button>
+					<!-- value is the duration -->
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="2">
+					<div class="c3 caption">$50</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/400 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="60" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="3">
+					<div class="caption c3">$25</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/200 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="4">
+					<div class="caption c3">$30</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/240 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="5">
+					<div class="caption c3">$60</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/480 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="6">
+					<div class="caption c3">$10</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/80 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+				<div class="spacer"></div>
+
 			</div>
-
-			<div class="line"></div>
-
-			<div class="raffle">
-				<div class="c3 caption">$50</div>
-				<div class="prize caption"> prize! </div>
-				<div class="captionB t3"> 0/150 </div>
-				<div class="captionB t32"> entrants </div>
-				<button class="enter" value="60" type="submit">enter</button>
-			</div>
-
-			<div class="line"></div>
-
-			<div class="raffle">
-				<div class="caption c3">$25</div>
-				<div class="prize caption"> prize! </div>
-				<div class="captionB t3"> 0/75 </div>
-				<div class="captionB t32"> entrants </div>
-				<button class="enter" value="30" type="submit">enter</button>
-			</div>
-
-			<div class="line"></div>
-
-			<div class="raffle">
-				<div class="caption c3">$30</div>
-				<div class="prize caption"> prize! </div>
-				<div class="captionB t3"> 0/90 </div>
-				<div class="captionB t32"> entrants </div>
-				<button class="enter" value="30" type="submit">enter</button>
-			</div>
-
-			<div class="line"></div>
-
-			<div class="raffle">
-				<div class="caption c3">$60</div>
-				<div class="prize caption"> prize! </div>
-				<div class="captionB t3"> 0/180 </div>
-				<div class="captionB t32"> entrants </div>
-				<button class="enter" value="30" type="submit">enter</button>
-			</div>
-
-			<div class="line"></div>
-
-			<div class="raffle">
-				<div class="caption c3">$10</div>
-				<div class="prize caption"> prize! </div>
-				<div class="captionB t3"> 0/30 </div>
-				<div class="captionB t32"> entrants </div>
-				<button class="enter" value="30" type="submit">enter</button>
-			</div>
-
-			<div class="line"></div>
-
 		</div>
 		
 		<button class="sponsor" id="s3">Sponsor a Raffle</button>
@@ -194,14 +256,13 @@
 =====================================  Initial Events  ==========================================
 =================================================================================================
 */
+	var bg1 = document.getElementById("bg1"); 
+	var bg2 = document.getElementById("bg2"); 
 	
 	window.onload = function(){ // initial fade in at start
 		$("#bg0").delay(1000).fadeOut(700);
-		$("#bg01").delay(6000).fadeOut(2000);
-		$("#bg02").delay(6000).fadeOut(2000);
 		$("#subtitle").hide().delay(2000).fadeIn(700);
 		$("#titleBox").hide().delay(200).css("visibility","visible").delay(200).fadeIn();
-//		spin();
 	};
 	
 	// code for the button text animation on the home page
@@ -218,12 +279,15 @@
 */
 	
 	function next(){ //function to transiton to next scene
-		
 		$(".Scene" + scene).fadeOut(300); // current scene fade out
-		
 		// next scene fade in
 		$(".Scene" + (scene + 1)).hide().delay(400).css("visibility","visible").fadeIn(300);
 		scene++;
+		
+		if(scene == 3){
+			$("#bg01").delay(750).fadeOut(2000);
+			$("#bg02").delay(750).fadeOut(2000);
+		}
 	}	
 	
 	function GoTo(s){ //function to transiton to next scene
@@ -302,19 +366,16 @@
 		}, 1000); // tick every 1000ms (second)
 	}
 	
-	function spin(){ //spins the background gradients
-		setInterval(function(){
-			$("body").get(0).style.setProperty("--deg", angle + "deg");
-			if(angle == 360){ angle = 0;}
-			else{ angle += 0.5;}
-		}, 50);
-	}	
-	
 /*
 =================================================================================================
 ======================================= Event Listeners =========================================
 =================================================================================================
 */
+	
+	$("#start").click(function(){
+		bg1.play();
+		bg2.play();
+	});
 	
 	$("#skip").click(function(){ //skip button
 		GoTo(3);
