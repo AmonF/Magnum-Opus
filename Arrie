@@ -1,0 +1,449 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Magnum Opus</title>
+<link href="Opus.css" rel="stylesheet" type="text/css">
+	
+<!-- fonts	-->
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+	
+</head>
+
+<body>
+<!------------------------------------- Pretty Background ------------------------------------------>
+	<div class="bg" id="bg01"></div>
+	<div class="bg" id="bg02"></div>
+	<div class="bg">
+		<video id="bg1" loop>
+  			<source src="background fade.mp4" type="video/mp4">
+		</video>		
+		<video id="bg2" loop>
+  			<source src="gradient fade.mp4" type="video/mp4">
+		</video>
+	</div>
+	
+<!------------------------------------------ SCENE 1 ----------------------------------------------->
+	
+	<div class="Scene1">  <!--each screen is a different page---> 
+		<button id="info">i</button>
+		<button class="sponsor" id="s1">Sponsor a Raffle</button>
+		<div class="bg" id="bg0"></div>
+		<div id="titleBox">
+			<div id="title">
+				<span id="black">Black</span><span id="cash">Cash</span>
+				<div id="subtitle">Enter to Win!</div>
+			</div>
+		</div>
+		<div class="startBox"><button class="next" id="start">Start</button></div>
+	</div>	
+
+<!------------------------------------------ SCENE 2 ----------------------------------------------->
+	
+	<div class="Scene2">
+		<button class="home"><img class="house" src="house.png"></button> <!-- home button	-->
+		
+		<div class="caption" id="c2">Enter your Aggie email address to Get Started!</div>
+		
+		<iframe name="hidden" style="display: none;"></iframe> <!-- this code is required to connect to the google form -->
+		
+		<div id="formBox"> <!-- visitor google form -->
+			<form id="visitors" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd6LrXa2MwBuFyc2Ewa5MK06g2vSOri0qfCLGednWCy0eGgrQ/formResponse" target="hidden">
+				<input type="text" name="entry.1100716498" placeholder="example@aggies.ncat.edu" />
+
+			</form>
+			<button id="access" type="submit">enter</button>
+		</div>
+		
+		<div class="captionB" id="guest"> Just Visiting </div>
+		
+	</div>	
+	
+<!------------------------------------------ SCENE 3 ----------------------------------------------->
+	
+	<div class="Scene3">
+		<button class="home"><img class="house" src="house.png"></button> <!-- home button -->
+		
+		<!-- entrants google form	-->
+		<form id="entrants" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSekj3CO6ULybY8l0p1LReB4TYdtIXfRoLly76ewUvMGbkFg7Q/formResponse" target="hidden">
+			<input type="text" name="entry.1367855836" placeholder="example@aggies.ncat.edu" style="visibility: hidden" />
+			<input type="text" placeholder="example@aggies.ncat.edu" disabled	 />
+		</form>
+		<div id="carousel">
+			<div id="caroContainer">
+				<div class="line"></div>
+
+				<div class="raffle" value="1">
+					<div class="caption c3">$100</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/800 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="120" type="submit">enter</button>
+					<!-- value is the duration -->
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="2">
+					<div class="c3 caption">$50</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/400 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="60" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="3">
+					<div class="caption c3">$25</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/200 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="4">
+					<div class="caption c3">$30</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/240 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="5">
+					<div class="caption c3">$60</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/480 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="6">
+					<div class="caption c3">$10</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/80 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+				
+				<div class="line"></div>
+				
+				<div class="raffle" value="1">
+					<div class="caption c3">$100</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/800 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="120" type="submit">enter</button>
+					<!-- value is the duration -->
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="2">
+					<div class="c3 caption">$50</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/400 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="60" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="3">
+					<div class="caption c3">$25</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/200 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="4">
+					<div class="caption c3">$30</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/240 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="5">
+					<div class="caption c3">$60</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/480 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+
+				<div class="raffle" value="6">
+					<div class="caption c3">$10</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3"> 0/80 </div>
+					<div class="captionB t32"> entrants </div>
+					<button class="enter" value="30" type="submit">enter</button>
+				</div>
+
+				<div class="line"></div>
+				<div class="spacer"></div>
+
+			</div>
+		</div>
+		
+		<button class="sponsor" id="s3">Sponsor a Raffle</button>
+		
+	</div>
+	
+<!------------------------------------------ SCENE T ----------------------------------------------->
+	
+	<div class="SceneT"> <!-- timer overlay	-->
+		<div class="caption" id="cT">Please Wait to Enter..</div>
+		<div id="clock">0:30</div>
+		
+		<div class="skipBox">
+			<button id="continue" style="visibility:hidden">continue</button>
+			<button id="skip">cancel</button>
+		</div>
+	</div>
+	
+</body>
+		
+<!------------------------------------------ SCENE S ----------------------------------------------->
+	
+	<div id="sBox">
+		<div class="SceneS">
+<!--			<div class="caption" id="cI">Please Wait to Enter..</div>-->
+			<button class="home"><img class="house" src="house.png"></button> 
+			<div id="countBox">
+				<div id="count">0</div>
+				<div id="UpDownBox">
+					<button id="up">
+						<svg height="35" width="40">
+							<polygon points="20,0 0,35 40,35" style="fill:grey;"/>
+						</svg>
+					</button>
+					<button id="down">
+						<svg height="35" width="40">
+							<polygon points="20,35 0,0 40,0" style="fill:grey;"/>
+						</svg>
+					</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+<!------------------------------------------ SCRIPT ------------------------------------------------>
+	<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+  <script src="https://bitstorm.org/jquery/shadow-animation/jquery.animate-shadow-min.js"></script> <!-- shadow animaiton plugin -->
+	
+<script>
+	
+/*
+=================================================================================================
+=====================================  Initial Events  ==========================================
+=================================================================================================
+*/
+	var bg1 = document.getElementById("bg1"); 
+	var bg2 = document.getElementById("bg2"); 
+	
+	window.onload = function(){ // initial fade in at start
+		$("#bg0").delay(1000).fadeOut(700);
+		$("#subtitle").hide().delay(2000).fadeIn(700);
+		$("#titleBox").hide().delay(200).css("visibility","visible").delay(200).fadeIn();
+	};
+	
+	// code for the button text animation on the home page
+	document.querySelectorAll('#start').forEach(button => button.innerHTML = '<div><span>' + button.textContent.trim().split('').join('</span><span>') + '</span></div>');
+	   
+	var scene = 1; // start on scene 1
+	var time; // declare time variable
+	var angle = 160;
+	var count = 0;
+/*
+=================================================================================================
+========================================  Functions  ============================================
+=================================================================================================
+*/
+	
+	function next(){ //function to transiton to next scene
+		$(".Scene" + scene).fadeOut(300); // current scene fade out
+		// next scene fade in
+		$(".Scene" + (scene + 1)).hide().delay(400).css("visibility","visible").fadeIn(300);
+		scene++;
+		
+		if($('div').attr('id') == 'access'){
+			$("#bg01").delay(750).fadeOut(2000);
+			$("#bg02").delay(750).fadeOut(2000);
+		}
+	}	
+	
+	function GoTo(s){ //function to transiton to next scene
+		
+		$(".Scene" + scene).fadeOut(300); // current scene fade out
+		
+		if(scene == 'T'){ // if timer overlay is visible
+			$(".enter").prop("disabled",false); //re-enable buttons
+			$(".Scene3").delay(1000).css("filter","blur(0px)"); // remove blur
+		}
+		else{$(".Scene" + s).hide().delay(400).css("visibility","visible").fadeIn(300);} // show scene given
+		scene = s;
+	}
+	
+	function timer(t){ // timer function (t is in seconds)
+		update(t); // run the "update" function
+		clockStart(t);
+		scene = 'T';
+		
+		$(".SceneT").hide().delay(200).css("visibility","visible").fadeIn(300); // display timer overlay
+		$(".Scene3").css("filter","blur(8px)"); // blur scene 3
+	}
+	
+	function home(){ //go home
+	
+		$(".Scene1").fadeIn(300); // fade in scene 1
+		$(".Scene" + scene).fadeOut(300); // fade out current scene
+		scene = 1;
+
+		if (scene == 'S'){
+			$(".Scene1").fadeIn(300); // fade in scene 1
+		$(".Scene" + scene).fadeOut(300); // fade out current scene
+		scene = 1;
+		}
+	}
+	
+	function update(t){ // reset the clock
+		$("#clock").css("visibility","visible").text(format(t)); // update the text and visibility
+		clearInterval(clock); // resets the interval code (look up JS intervals to learn more)
+	}
+	
+	function format(t){ //time format 0:00
+		var minutes = (t / 60) | 0;
+		var seconds = t % 60;
+		var format = minutes + ":" + ((seconds < 10) ? "0" + seconds : seconds);
+		
+		return format;
+	}
+	
+	function clockStart(t){	// clock countdown function
+		
+		$("#continue").css("visibility","hidden"); // hide continue button
+		$("#skip").show(); // show skip button
+		var tf = true; // boolean for flash
+		time = t;
+
+		// Update the count down every 1 second
+		var clock = setInterval(function() {
+			
+			if(scene != 'T'){clearInterval(clock);} // only counts when clock is showing
+			
+		  	$("#clock").text(format(time)); // update clock text
+			time--; // count down 1 second
+			
+			// when the count down is finished
+		  	if (time < 0) {
+				clearInterval(clock);
+				time = t;
+				$("#clock").text("0:00");
+				
+				$("#continue").css("visibility","visible"); // show continue button
+				$("#skip").hide(); // hide skip button
+				
+				
+				// timer blink at 0 seconds
+				var flash = setInterval(function(){ 
+					if(scene != 'T'){clearInterval(flash); $("#clock").css("visibility","visible");}
+					tf = !tf; // boolean switch
+					$("#clock").css("visibility", (tf ? "visible":"hidden")); // show or hide based on tf
+				} ,500); // repeat every 500ms (half second)
+		  	}
+		}, 1000); // tick every 1000ms (second)
+	}
+	
+/*
+=================================================================================================
+======================================= Event Listeners =========================================
+=================================================================================================
+*/
+	
+	$("#start").click(function(){
+		bg1.play();
+		bg2.play();
+	});
+	
+	$("#skip").click(function(){ //skip button
+		GoTo(3);
+	});
+	
+	$("#continue").click(function(){
+		$("#entrants").submit(); //submit to the entrants form
+		GoTo(3);
+	});
+	
+	$(".sponsor").click(function(){
+		GoTo("S");
+	});
+	
+	$(".next").click(function(){ // event listener for any button with the next class
+		next(); // run the "next" function
+		$("#cash").css("animation","none");
+	});
+	
+	$(".home").click(function(){ // event listener for home button / home class
+		$(".enter").prop("disabled",false);
+		$(".enter").css("cursor","default");
+		home(); // run "home"
+	});
+	
+	$("#guest").click(function(){
+		$(".enter").prop("disabled",true);
+		$(".enter").css("cursor","not-allowed");
+		next();
+	});
+	
+	$("#up").click(function(){
+		count++;
+		$("#count").text(count);
+	});	
+	
+	$("#down").click(function(){
+		if(count == 0){
+			count =0;
+		} else{
+			count--;
+		}
+		
+		$("#count").text(count);
+	});
+	
+	$("#access").click(function(){ // scene 2 form button event listener
+		if($("#visitors > input").val().includes("@aggies.ncat.edu")){ // validates if the email is an aggie one (but easy to bypass)
+			$("#visitors").submit(); // submits the user email to the "visitors" form
+			$("#entrants > input").val($("#visitors > input").val()); // populates the user email into the "entrants" form input in scene 3
+			next();
+		}
+		else{alert("The email you entered does not include @aggies.ncat.edu");} // error message (needs improvement)
+		
+	});
+	
+	$(".enter").click(function(){ // scene 3 enter button
+		$(".enter").prop("disabled",true); // disable enter button to prevent double clicking glitch
+		timer($(this).val()); // this takes the value of the raffle's enter button
+	});
+
+	
+</script>
+</html>
