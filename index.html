@@ -220,12 +220,12 @@
 		
 <!------------------------------------------ SCENE S ----------------------------------------------->
 	
-	<div id="sBox">
-		<div class="SceneS">
-<!--			<div class="caption" id="cI">Please Wait to Enter..</div>-->
-			<button class="home"><img class="house" src="house.png"></button> 
+	<div class="SceneS">
+		<button class="home"><img class="house" src="house.png"></button>
+		<div id="sBox">
+			<div class="caption" id="cS">Select how many students you would like exposure to</div>
 			<div id="countBox">
-				<div id="count">0</div>
+				<div id="count">40</div>
 				<div id="UpDownBox">
 					<button id="up">
 						<svg height="35" width="40">
@@ -239,6 +239,8 @@
 					</button>
 				</div>
 			</div>
+			<div class="captionB" id="cS2">¢25/student</div>
+			<div class="captionB" id="price">$10.00</div>
 		</div>
 	</div>
 	
@@ -272,7 +274,9 @@
 	var scene = 1; // start on scene 1
 	var time; // declare time variable
 	var angle = 160;
-	var count = 0;
+	var count = 40;
+	var price = count/4.0;
+	var raffle;
 /*
 =================================================================================================
 ========================================  Functions  ============================================
@@ -285,7 +289,7 @@
 		$(".Scene" + (scene + 1)).hide().delay(400).css("visibility","visible").fadeIn(300);
 		scene++;
 		
-		if($('div').attr('id') == 'access'){
+		if(scene == 3){
 			$("#bg01").delay(750).fadeOut(2000);
 			$("#bg02").delay(750).fadeOut(2000);
 		}
@@ -373,6 +377,17 @@
 		}, 1000); // tick every 1000ms (second)
 	}
 	
+	function disable(n){ // disables button of choice
+		if(n == "all"){ // disable all the buttons
+			$(".enter").prop("disabled",true);
+			$(".enter").css({"cursor":"not-allowed", "opacity":"0.75"});
+		}
+		var button = $(".raffle[value='" + n +"']").children().next(".enter");
+		button.prop("disabled",true);
+		button.css({"cursor":"not-allowed", "opacity":"0.75"});
+		button.text("entered")
+	}
+	
 /*
 =================================================================================================
 ======================================= Event Listeners =========================================
@@ -391,6 +406,7 @@
 	$("#continue").click(function(){
 		$("#entrants").submit(); //submit to the entrants form
 		GoTo(3);
+		disable(raffle);
 	});
 	
 	$(".sponsor").click(function(){
@@ -409,24 +425,25 @@
 	});
 	
 	$("#guest").click(function(){
-		$(".enter").prop("disabled",true);
-		$(".enter").css("cursor","not-allowed");
+		disable("all");
 		next();
 	});
 	
 	$("#up").click(function(){
 		count++;
+		price = count/4.0;
+		
 		$("#count").text(count);
+		$("#price").text("$" + (((price % 1) == 0) ? price + ".00" : (((price % 1) == 0.5) ? price + "0" : price)));
+		// if price is a whole number then add .00, if price is .5 the add 0, otherwise leave it alone 	
 	});	
 	
 	$("#down").click(function(){
-		if(count == 0){
-			count =0;
-		} else{
-			count--;
-		}
+		if(count == 0){count = 0;} 
+		else{count--; price = count/4.0;}
 		
 		$("#count").text(count);
+		$("#price").text("$" + (((price % 1) == 0) ? price + ".00" : (((price % 1) == 0.5) ? price + "0" : price)));
 	});
 	
 	$("#access").click(function(){ // scene 2 form button event listener
@@ -442,6 +459,7 @@
 	$(".enter").click(function(){ // scene 3 enter button
 		$(".enter").prop("disabled",true); // disable enter button to prevent double clicking glitch
 		timer($(this).val()); // this takes the value of the raffle's enter button
+		raffle = $(this).parent().attr("value");
 	});
 
 	
