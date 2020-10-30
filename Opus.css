@@ -531,7 +531,7 @@ body {
 }
 
 #price {
-	position: fixed;
+	position: absolute;
 	height: auto;
 	top: 590px;
 	font-size: 156px;
