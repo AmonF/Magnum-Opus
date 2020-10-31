@@ -315,6 +315,14 @@ body {
 	margin-bottom: 20px;
 }
 
+#raf {
+	position: absolute;
+	z-index: -2;
+	left: 0px;
+	width: 0px;
+	height: 0px;
+}
+
 .raffle {
 	flex-shrink: 0;
 	position: relative;
@@ -510,10 +518,9 @@ body {
 	transform: translateY(0);
 }
 
-#cS {
+.cS{
 	position: absolute;
 	font-size: 50px;
-	top: 100px;
 	text-align: center;
 	width: 770px;
 	animation: float2 6s ease-in-out infinite normal;
@@ -521,19 +528,43 @@ body {
 	text-shadow: 4px 4px 3px #000000;
 }
 
+#cS1 {
+	top: 100px;
+}
 
 #cS2 {
+	top: 650px;
+}
+
+#timeBox {
+	display: flex;
+	position: absolute;
+	justify-content: space-around;
+	width: 80%;
+	top: 880px;
+	height: fit-content;
+}
+
+.time {
+	font-size: 75px;
+	width: 200px;
+	height: 90px;
+	border-radius: 50px;
+	opacity: 0.6;
+}
+
+#cS3 {
 	font-weight: 450;
 	font-size: 40px;
 	position: absolute;
-	top: 755px;
+	top: 1200px;
 	opacity: 1;
 }
 
 #price {
 	position: absolute;
 	height: auto;
-	top: 590px;
+	top: 1040px;
 	font-size: 156px;
 }
 
