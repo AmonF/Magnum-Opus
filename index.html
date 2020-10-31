@@ -69,6 +69,7 @@
 		<form id="entrants" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSekj3CO6ULybY8l0p1LReB4TYdtIXfRoLly76ewUvMGbkFg7Q/formResponse" target="hidden">
 			<input type="text" name="entry.1367855836" placeholder="example@aggies.ncat.edu" style="visibility: hidden" />
 			<input type="text" placeholder="example@aggies.ncat.edu" disabled	 />
+			<input id="raf" type="text" name="entry.340298268" style="visibility: hidden"/>
 		</form>
 		<div id="carousel">
 			<div id="caroContainer">
@@ -223,7 +224,7 @@
 	<div class="SceneS">
 		<button class="home"><img class="house" src="house.png"></button>
 		<div id="sBox">
-			<div class="caption" id="cS">Select how many students you would like exposure to</div>
+			<div class="caption cS" id="cS1">Select how many students you would like exposure to</div>
 			<div id="countBox">
 				<div id="count">40</div>
 				<div id="UpDownBox">
@@ -239,8 +240,14 @@
 					</button>
 				</div>
 			</div>
-			<div class="captionB" id="cS2">¢25/student</div>
+			<div class="caption cS" id="cS2">Select how much time you want to display your message</div>
+			<div id="timeBox">
+				<button class="time" value="30">30s</button>
+				<button class="time" value="60">1m</button>
+				<button class="time" value="120">2m</button>
+			</div>
 			<div class="captionB" id="price">$10.00</div>
+			<div class="captionB" id="cS3">¢25/student</div>
 		</div>
 	</div>
 	
@@ -266,6 +273,7 @@
 		$("#bg0").delay(1000).fadeOut(700);
 		$("#subtitle").hide().delay(2000).fadeIn(700);
 		$("#titleBox").hide().delay(200).css("visibility","visible").delay(200).fadeIn();
+		$(".time[value='30']").css("opacity","1");
 	};
 	
 	// code for the button text animation on the home page
@@ -277,6 +285,8 @@
 	var count = 40;
 	var price = count/4.0;
 	var raffle;
+	var adTime = 30;
+	var per = 25;
 /*
 =================================================================================================
 ========================================  Functions  ============================================
@@ -388,6 +398,24 @@
 		button.text("entered")
 	}
 	
+	function getData(){ // links and converts entrants google form response spreadsheet to json format
+
+        $.ajax({
+			url:'https://spreadsheets.google.com/feeds/worksheets/1rPvgSi61YIbUWs2UFRw_qQThfzgEqMBTwj9vVcgoUVY/public/basic?alt=json',
+			method:"GET"
+		}).done(function(users){
+			var userCount = 0;
+            for(var x in users){
+				userCount++;
+                console.log("users[x] ");
+                console.log(users[x]);
+            }
+            console.log("users ");
+            console.log(users);
+            console.log("count " + userCount);
+        })
+	}
+	
 /*
 =================================================================================================
 ======================================= Event Listeners =========================================
@@ -404,6 +432,7 @@
 	});
 	
 	$("#continue").click(function(){
+		$("#raf").val(raffle);
 		$("#entrants").submit(); //submit to the entrants form
 		GoTo(3);
 		disable(raffle);
@@ -431,7 +460,7 @@
 	
 	$("#up").click(function(){
 		count++;
-		price = count/4.0;
+		price = (per == 1) ? count : count*(per/100);
 		
 		$("#count").text(count);
 		$("#price").text("$" + (((price % 1) == 0) ? price + ".00" : (((price % 1) == 0.5) ? price + "0" : price)));
@@ -440,7 +469,7 @@
 	
 	$("#down").click(function(){
 		if(count == 0){count = 0;} 
-		else{count--; price = count/4.0;}
+		else{count--; price = (per == 1) ? count : count*(per/100);}
 		
 		$("#count").text(count);
 		$("#price").text("$" + (((price % 1) == 0) ? price + ".00" : (((price % 1) == 0.5) ? price + "0" : price)));
@@ -450,6 +479,7 @@
 		if($("#visitors > input").val().includes("@aggies.ncat.edu")){ // validates if the email is an aggie one (but easy to bypass)
 			$("#visitors").submit(); // submits the user email to the "visitors" form
 			$("#entrants > input").val($("#visitors > input").val()); // populates the user email into the "entrants" form input in scene 3
+			getData();
 			next();
 		}
 		else{alert("The email you entered does not include @aggies.ncat.edu");} // error message (needs improvement)
@@ -460,6 +490,16 @@
 		$(".enter").prop("disabled",true); // disable enter button to prevent double clicking glitch
 		timer($(this).val()); // this takes the value of the raffle's enter button
 		raffle = $(this).parent().attr("value");
+	});
+	
+	$(".time").click(function(){
+		adTime = $(this).val();
+		per = (($(this).val()==30) ? 25 : (($(this).val()==60) ? 50 : 1))
+		price = (per == 1) ? count : count*(per/100);
+		$("#price").text("$" + (((price % 1) == 0) ? price + ".00" : (((price % 1) == 0.5) ? price + "0" : price)));
+		$(".time").not(".time[value='" + adTime + "']").css("opacity","0.6");
+		$(this).css("opacity","1");
+		$("#cS3").text((per == 1) ? "$1/student" : ("¢" + per + "/student"));
 	});
 
 	
