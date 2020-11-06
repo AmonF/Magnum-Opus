@@ -283,6 +283,7 @@
 	var time; // declare time variable
 	var angle = 160;
 	var count = 40;
+	var clicked = true;
 	var price = count/4.0;
 	var raffle;
 	var adTime = 30;
@@ -337,6 +338,7 @@
 		$(".Scene" + scene).fadeOut(300); // fade out current scene
 		scene = 1;
 		}
+		clicked = true;
 	}
 	
 	function update(t){ // reset the clock
@@ -428,7 +430,8 @@
 	});
 	
 	$("#skip").click(function(){ //skip button
-		GoTo(3);
+		if (clicked) {GoTo(3)};
+		clicked = !clicked;
 	});
 	
 	$("#continue").click(function(){
@@ -438,12 +441,19 @@
 		disable(raffle);
 	});
 	
-	$(".sponsor").click(function(){
-		GoTo("S");
+	$("#s1").click(function(){
+		if (clicked) {GoTo("S");} 
+  		clicked= !clicked;	
 	});
-	
+
+	$("#s3").click(function(){
+		if (clicked || scene == 3) {GoTo("S");} 
+  		clicked= !clicked;	
+	});
+
 	$(".next").click(function(){ // event listener for any button with the next class
-		next(); // run the "next" function
+		if (clicked){next();} // run the "next" function
+		clicked = !clicked;
 		$("#cash").css("animation","none");
 	});
 	
@@ -455,7 +465,8 @@
 	
 	$("#guest").click(function(){
 		disable("all");
-		next();
+		if (!clicked) {next();} 
+  		clicked= !clicked;
 	});
 	
 	$("#up").click(function(){
@@ -479,8 +490,8 @@
 		if($("#visitors > input").val().includes("@aggies.ncat.edu")){ // validates if the email is an aggie one (but easy to bypass)
 			$("#visitors").submit(); // submits the user email to the "visitors" form
 			$("#entrants > input").val($("#visitors > input").val()); // populates the user email into the "entrants" form input in scene 3
-			getData();
-			next();
+			if (!clicked) {next();} 
+  			clicked= !clicked;
 		}
 		else{alert("The email you entered does not include @aggies.ncat.edu");} // error message (needs improvement)
 		
@@ -490,6 +501,7 @@
 		$(".enter").prop("disabled",true); // disable enter button to prevent double clicking glitch
 		timer($(this).val()); // this takes the value of the raffle's enter button
 		raffle = $(this).parent().attr("value");
+		clicked = true;
 	});
 	
 	$(".time").click(function(){
