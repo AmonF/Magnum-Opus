@@ -242,12 +242,84 @@
 			</div>
 			<div class="caption cS" id="cS2">Select how much time you want to display your message</div>
 			<div id="timeBox">
+				<button class="time" value="15">15s</button>
 				<button class="time" value="30">30s</button>
 				<button class="time" value="60">1m</button>
-				<button class="time" value="120">2m</button>
 			</div>
-			<div class="captionB" id="price">$10.00</div>
-			<div class="captionB" id="cS3">¢25/student</div>
+			<div class="captionB" id="price">$20.00</div>
+			<div class="captionB" id="cS3">¢50/student</div>
+			<div class="caption cS" id="cS4">Select which category your business best fits under</div>
+			<div id="catBox">
+				<button class="cat" id="food" value="1">food</button>
+				<button class="cat" id="art" value="2">art</button>
+				<button class="cat" id="apparel" value="3">apparel</button>
+				<button class="cat" id="other" value="4">other</button>
+			</div>
+			<div class="caption cS" id="cS5">Upload a background image</div>
+			<div class="caption cS" id="cS6">( optional )</div>
+			<div class="dragBox" id="drag1" ondragover="dragIn(event)" ondragleave="dragOut(event)">
+<!--				<img class="folder" src="folder2.png">-->
+				<span class="plus">+</span>
+			</div>
+			
+			<div class="caption cS" id="cS7">Upload a video or audio file</div>
+			<div class="caption cS" id="cS8">( optional )</div>
+			<div class="dragBox" id="drag2" ondragover="dragIn(event)" ondragleave="dragOut(event)">
+<!--				<img class="folder" src="folder2.png">-->
+				<span class="plus">+</span>
+			</div>
+			
+			<div id="carouselP">
+				<div class="line"></div>
+				<div class="raffle" id="raffleP">
+					<button class="icon">
+						<img class="food" src="fork.png">
+						<img class="art" src="brush.png">
+						<img class="apparel" src="shirt.png">
+						<span class="other">?</span>
+					</button>
+					<div class="caption c3" id="pPrice">$10</div>
+					<div class="prize caption"> prize! </div>
+					<div class="captionB t3" id="pEntrants"> 0/40 </div>
+					<div class="captionB t32"> entrants </div>
+					<button id="preview">Preview</button>
+				</div>
+				<div class="line"></div>
+				<div class="spacer"></div>
+			</div>
+				
+			<div id="bankBox">
+				<div class="infoBox">
+					<span class="grey caption">Email</span>
+					<input class="sponsorInfo textBox" type="text">
+				</div>
+				<div class="infoBox">
+					<span class="grey caption">Website (optional)</span>
+					<input class="sponsorInfo textBox" type="text">
+				</div>
+				<div class="infoBox">
+					<span class="caption grey">Card Number</span>
+					<div id="cardInfo">
+						<input class="sponsorInfo" type="text" id="cardNum">
+						<input class="sponsorInfo" type="text" id="month" placeholder="MM" maxlength="2">
+						<span class="caption grey">/</span>
+						<input class="sponsorInfo" type="text" id="year" placeholder="YY" maxlength="2">
+						<input class="sponsorInfo" type="text" id="cvv" placeholder="CVC" maxlength="3">
+					</div>
+				</div>				
+				<div class="infoBox">
+					<span class="caption grey">Name on Card</span>
+					<input class="sponsorInfo textBox" type="text">
+				</div>
+				<div class="infoBox">
+					<span class="caption grey">ZIP Code</span>
+					<input class="sponsorInfo textBox" type="text">
+				</div>
+			</div>
+			
+			<button type="submit" id="confirm">Sponsor!</button>
+			<span class="captionB" id="disclaimer">By clicking Sponsor you agree to the
+			<span class="caption" id="terms"> Terms of Service</span></span>
 		</div>
 	</div>
 	
@@ -287,7 +359,9 @@
 	var price = count/4.0;
 	var raffle;
 	var adTime = 30;
-	var per = 25;
+	var per = 50;
+	var tex
+	var category = 4;
 /*
 =================================================================================================
 ========================================  Functions  ============================================
@@ -313,6 +387,8 @@
 		if(scene == 'T'){ // if timer overlay is visible
 			$(".enter").prop("disabled",false); //re-enable buttons
 			$(".Scene3").delay(1000).css("filter","blur(0px)"); // remove blur
+			$("#sBox").css("filter","blur(0px)"); // blur scene S
+			$(".home").css("filter","blur(0px)"); // blur home button
 		}
 		else{$(".Scene" + s).hide().delay(400).css("visibility","visible").fadeIn(300);} // show scene given
 		scene = s;
@@ -325,6 +401,8 @@
 		
 		$(".SceneT").hide().delay(200).css("visibility","visible").fadeIn(300); // display timer overlay
 		$(".Scene3").css("filter","blur(8px)"); // blur scene 3
+		$("#sBox").css("filter","blur(8px)"); // blur scene S
+		$(".home").css("filter","blur(8px)"); // blur home button
 	}
 	
 	function home(){ //go home
@@ -418,6 +496,15 @@
         })
 	}
 	
+	function dragIn(event){
+		event.target.style.background = "rgba(83,200,255,.65)";
+		$(".plus").css("background","transparent");
+	}	
+	
+	function dragOut(event){
+		event.target.style.background = "rgba(202,232,239,0.55)";
+	}
+	
 /*
 =================================================================================================
 ======================================= Event Listeners =========================================
@@ -476,6 +563,8 @@
 		$("#count").text(count);
 		$("#price").text("$" + (((price % 1) == 0) ? price + ".00" : (((price % 1) == 0.5) ? price + "0" : price)));
 		// if price is a whole number then add .00, if price is .5 the add 0, otherwise leave it alone 	
+		$("#pEntrants").text("0/" + count);
+		$("#pPrice").text("$" + (((price % 1) == 0) ? Math.floor(price/2) : Math.floor(price/2)));
 	});	
 	
 	$("#down").click(function(){
@@ -484,6 +573,8 @@
 		
 		$("#count").text(count);
 		$("#price").text("$" + (((price % 1) == 0) ? price + ".00" : (((price % 1) == 0.5) ? price + "0" : price)));
+		$("#pEntrants").text("0/" + count);
+		$("#pPrice").text("$" + (((price % 1) == 0) ? Math.floor(price/2) : Math.floor(price/2)));
 	});
 	
 	$("#access").click(function(){ // scene 2 form button event listener
@@ -504,15 +595,56 @@
 		clicked = true;
 	});
 	
+	$("#preview").click(function(){ // ad preview button
+		timer(adTime); // start timer
+		clicked = true;
+	});
+	
 	$(".time").click(function(){
 		adTime = $(this).val();
-		per = (($(this).val()==30) ? 25 : (($(this).val()==60) ? 50 : 1))
-		price = (per == 1) ? count : count*(per/100);
-		$("#price").text("$" + (((price % 1) == 0) ? price + ".00" : (((price % 1) == 0.5) ? price + "0" : price)));
-		$(".time").not(".time[value='" + adTime + "']").css("opacity","0.6");
-		$(this).css("opacity","1");
-		$("#cS3").text((per == 1) ? "$1/student" : ("¢" + per + "/student"));
+		per = (($(this).val()==15) ? 25 : (($(this).val()==30) ? 50 : 1)) // calculates the price per student
+		price = (per == 1) ? count : count*(per/100); // calculates the overall price
+		$("#price").text("$" + (((price % 1) == 0) ? price + ".00" : (((price % 1) == 0.5) ? price + "0" : price))); // sets price text
+		$(".time").not(".time[value='" + adTime + "']").css("opacity","0.6"); // every other time button decrease opacity
+		$(this).css("opacity","1"); // clicked time button not opaque
+		$("#cS3").text((per == 1) ? "$1/student" : ("¢" + per + "/student")); // per student text update
+		$("#pPrice").text("$" + (((price % 1) == 0) ? (price/2) : ((price/2).toFixed(2))));
 	});
+	
+	$(".cat").click(function(){
+		category = $(this).val();
+		$(".cat").not(".cat[value='" + category + "']").css("opacity","0.4"); // every other category button decrease opacity
+		$(this).css("opacity","1"); // clicked category button not opaque
+		
+		switch (category) {
+  			case "1":
+				$(".icon").css("background","orange");
+				$(".food").css("display","block");
+				$(".food").siblings().css("display","none");
+    			break;
+  			case "2":
+    			$(".icon").css("background","red");
+				$(".art").css("display","block");
+				$(".art").siblings().css("display","none");
+				break;
+			case "3":
+				$(".icon").css("background","limegreen");
+				$(".apparel").css("display","block");
+				$(".apparel").siblings().css("display","none");
+				break;
+			case "4":
+				$(".icon").css("background","deepskyblue");
+				$(".other").css("display","block");
+				$(".other").siblings().css("display","none");
+		}
+	});
+	
+	$(".dragBox").hover(function(){
+		$(this).css("background","rgba(202,232,239,0.75)");
+	},  function(){
+		$(this).css("background","rgba(202,232,239,0.55)");
+	});
+
 
 	
 </script>
