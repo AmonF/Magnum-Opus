@@ -24,6 +24,7 @@
 body {
 	margin: 0px;
 	background-color: black;
+	overflow: hidden;
 }
 
 .bg {
@@ -232,7 +233,7 @@ body {
 
 #guest {
 	cursor: pointer;
-	left: 236px;
+	left: 238px;
 }
 
 /*
@@ -257,20 +258,20 @@ body {
 	position: absolute;
 	font-size: 100px;
 	margin-left: -15px;
-	top: -15px;
+	top: 2px;
 	text-shadow: 5.5px 5.5px 5px #000000;
 }
 
 .t3 {
 	position: absolute;
 	font-size: 50px;
-	top: 136px;
+	top: 153px;
 	text-align: center;
 }
 
 .t32 {
 	position: absolute;
-	top: 186px;
+	top: 203px;
 	text-align: center;
 	font-size: 30px;
 	cursor: pointer;
@@ -279,7 +280,7 @@ body {
 .enter {
 	position: absolute;
 	align-self: center;
-	top: 250px;
+	top: 267px;
 	border-radius: 40px;
 	border-style: hidden;
 }
@@ -288,7 +289,7 @@ body {
 #entrants {
 	position: absolute;
 	right: 8px;
-	top: 8px;
+	top: 25px;
 }
 
 #carousel {
@@ -357,7 +358,7 @@ body {
 .prize {
 	position: relative;
 	font-size: 25px;
-	top: 90px;
+	top: 107px;
 	text-shadow: 4px 4px 3px #000000;
 }
 
@@ -402,7 +403,7 @@ body {
 	display: flex;
 	position: absolute;
 	line-height: 600px;
-	z-index: 5;
+	z-index: 10;
 	background-color: rgba(0,0,0,0.65);
 }
 
@@ -568,11 +569,221 @@ body {
 	font-size: 156px;
 }
 
+#cS4 {
+	top: 1340px;
+}
+
+#catBox {
+	display: flex;
+	position: absolute;
+	justify-content: space-around;
+	width: 80%;
+	top: 1585px;
+	height: fit-content;
+}
+
+.cat {
+	width: 180px;
+	height: 90px;
+	border-radius: 50px;
+	opacity: 0.4;
+}
+
+.cat:active {
+	box-shadow: var(--shadow-hover);
+}
+
+#food {
+	background-color: orange;
+}
+
+#art {
+	font-size: 50px;
+	background-color: red;
+}
+
+#apparel {
+	font-size: 35px;
+	padding: 16px 0px;
+	background-color: limegreen;
+}
+
+#other {
+	padding: 16px 0px;
+	background-color:  deepskyblue;
+	opacity: 1;
+}
+
+#cS5 {
+	top: 1800px;
+}
+
+#cS6 {
+	top: 1850px;
+	font-size: 25px;
+}
+
+#cS7 {
+	top: 2180px;
+}
+
+#cS8 {
+	top: 2230px;
+	font-size: 25px;
+}
+
+.dragBox {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 80%;
+	height: 195px;
+	border: 4px dashed rgba(83,200,255,1.00);
+	border-radius: 20px;
+	background-color: rgba(202,232,239,0.55);
+	text-align: center;
+}
+
+.dragBox:hover {
+	cursor: pointer;
+}
+
+#drag1 {
+	top: 1940px;
+}
+
+#drag2 {
+	top: 2325px;
+}
+
+.folder {
+	height: 80%;
+	position: absolute;
+	z-index: 0;
+	opacity: 0.7;
+}
+
+.plus {
+	font-family: 'Rubik', sans-serif;
+	font-size: 50px;
+	color: rgba(0,175,255,1.00);
+	position: absolute;
+	z-index: -1;
+	text-align: center;
+	opacity: 0.7;
+}
+
+#carouselP {
+	position: absolute;
+	top: 2600px;
+	width: 100%;
+	height: 450px;
+	align-content: center;
+	justify-content: center;
+	display: flex;
+
+	background-color: rgba(198,198,198,0.40);
+	border-bottom: 10px solid rgba(50,50,50,0.7);
+	border-top: 7px solid rgba(50,50,50,0.7);
+}
+
+#preview {
+	position: absolute;
+	align-self: center;
+	top: 267px;
+	border-radius: 40px;
+	border-style: hidden;
+}
+
+.sponsorInfo {
+	font-family: 'Rubik', sans-serif;
+	background: transparent;
+	border-bottom: 2px solid black;
+	border-radius: 0;
+	padding: 0;
+	letter-spacing: .5px;
+}
+
+#bankBox {
+	position: absolute;
+	height: 23%;
+	width: 80%;
+	top: 3133px;
+}
+
+.infoBox {
+	height: 30%;
+	width: 100%;
+	margin-bottom: 2%;
+}
+
+.textBox {
+	width: 100%;
+	height: 60%;
+}
+
+#cardInfo {
+	height: 63%;
+}
+
+#cardNum {
+	width: 67%;
+	height: 100%;
+}
+
+#month {
+	width: 8%;
+	height: 100%;
+	text-align: center;
+}
+
+#year {
+	width: 8%;
+	height: 100%;
+	text-align: center;
+}
+
+#cvv {
+	width: 10%;
+	height: 100%;
+	margin-left: 2%;
+	text-align: center;
+}
+
+#cNameInput {
+	width: 100%;
+	height: 60%;
+}
+
+#confirm {
+	top: 373%;
+	position: absolute;
+}
+
+#disclaimer {
+	top: 385%;	
+	position: absolute;
+	margin-bottom: 6%;
+}
+
+#terms {
+	color: white;
+}
+
+#terms:hover {
+	color: deepskyblue;
+	cursor: pointer;
+}
 /*
 =================================================================================================
 ====================================  Global Styles  ============================================
 =================================================================================================
 */
+
+*:focus {
+    outline: none;
+}
 
 .caption {
 	font-family: 'Rubik', sans-serif;
@@ -587,6 +798,10 @@ body {
 	font-weight: 1000;
 	color: rgba(44,44,44,0.79);
 	cursor: default;
+}
+
+.grey {
+	color: rgba(44,44,44,0.79);
 }
 
 .home {
@@ -604,6 +819,58 @@ body {
 	height: 45px;
 	width: 45px;
 	margin: 0px 2.5px;
+}
+
+.icon {
+	position: absolute;
+	top: -13px;
+	right: 0px;
+	padding: 0px 0px;
+	height: 35px;
+	z-index: 1;
+	border-radius: 30px;
+	border-style: hidden;
+	background-color: deepskyblue;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+	opacity: 0.8;
+}
+
+.icon:hover {
+	opacity: 1;
+	cursor: default;
+	box-shadow: 1px 3px 4px rgba(0,0,0,0.3);
+}
+
+.food {
+	height: 30px;
+	width: 30px;
+	margin: 2px 2.5px;
+	display: none;
+}
+
+.art {
+	height: 27px;
+	width: 27px;
+	margin: 4px 4px;
+	display: none;
+}
+
+.apparel {
+	height: 25px;
+	width: 25px;
+	margin: 5px 5px;
+	display: none;
+}
+
+.other {
+	height: 25px;
+	width: 25px;
+	margin: -4px 5px;
+	font-size: 32px;
+	transform: translateX(1px);
+	text-shadow: 1px 3px 4px rgba(0,0,0,0.3);
 }
 
 input {
