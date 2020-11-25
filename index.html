@@ -15,6 +15,7 @@
 <!------------------------------------- Pretty Background ------------------------------------------>
 	<div class="bg" id="bg01"></div>
 	<div class="bg" id="bg02"></div>
+	<div class="black" id="bgBlack"></div>
 	<div class="bg">
 		<video id="bg1" loop>
   			<source src="background fade.mp4" type="video/mp4">
@@ -36,41 +37,54 @@
 				<div id="subtitle">Enter to Win!</div>
 			</div>
 		</div>
-		<div class="startBox"><button class="next" id="start">Start</button></div>
+		<div id="startBox"><button class="next" id="start">Start</button></div>
+		</div>
 	</div>	
 
 <!------------------------------------------ SCENE 2 ----------------------------------------------->
 	
 	<div class="Scene2">
+
 		<button class="home"><img class="house" src="house.png"></button> <!-- home button	-->
 		
-		<div class="caption" id="c2">Enter your Aggie email address to Get Started!</div>
+		<div class="caption" id="c2">Log in using your Aggie email address!</div>
 		
 		<iframe name="hidden" style="display: none;"></iframe> <!-- this code is required to connect to the google form -->
 		
 		<div id="formBox"> <!-- visitor google form -->
 			<form id="visitors" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSd6LrXa2MwBuFyc2Ewa5MK06g2vSOri0qfCLGednWCy0eGgrQ/formResponse" target="hidden">
 				<input type="text" name="entry.1100716498" placeholder="example@aggies.ncat.edu" />
-
 			</form>
-			<button id="access" type="submit">enter</button>
+			
+			<div id="enterBox">
+				
+				<button id="access" type="submit">enter</button>
+				
+				<video id="bg3" loop>
+  					<source src="background fade.mp4" type="video/mp4">
+				</video>
+				
+				<div class="captionB" id="guest"> Just Visiting </div>
+				
+			</div>
+			
 		</div>
-		
-		<div class="captionB" id="guest"> Just Visiting </div>
 		
 	</div>	
 	
 <!------------------------------------------ SCENE 3 ----------------------------------------------->
 	
 	<div class="Scene3">
-		<button class="home"><img class="house" src="house.png"></button> <!-- home button -->
+		<div class="black" id="b3"></div>
+		<div class="black" id="b32"></div>
+		<div class="screen" id="g3"></div>
+		<div class="screen" id="g32"></div>
 		
-		<!-- entrants google form	-->
-		<form id="entrants" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSekj3CO6ULybY8l0p1LReB4TYdtIXfRoLly76ewUvMGbkFg7Q/formResponse" target="hidden">
-			<input type="text" name="entry.1367855836" placeholder="example@aggies.ncat.edu" style="visibility: hidden" />
-			<input type="text" placeholder="example@aggies.ncat.edu" disabled	 />
-			<input id="raf" type="text" name="entry.340298268" style="visibility: hidden"/>
-		</form>
+		
+		<button class="home"><img class="house" src="house.png"></button> <!-- home button -->
+			
+		<button id="displayName" disabled> example@aggies.ncat.edu </button>
+		
 		<div id="carousel">
 			<div id="caroContainer">
 				<div class="line"></div>
@@ -222,6 +236,8 @@
 <!------------------------------------------ SCENE S ----------------------------------------------->
 	
 	<div class="SceneS">
+		<div class="black" id="bS"></div>
+		<div class="black" id="bS2"></div>
 		<button class="home"><img class="house" src="house.png"></button>
 		<div id="sBox">
 			<div class="caption cS" id="cS1">Select how many students you would like exposure to</div>
@@ -340,11 +356,12 @@
 */
 	var bg1 = document.getElementById("bg1"); 
 	var bg2 = document.getElementById("bg2"); 
+	var bg3 = document.getElementById("bg3"); 
 	
 	window.onload = function(){ // initial fade in at start
-		$("#bg0").delay(1000).fadeOut(700);
-		$("#subtitle").hide().delay(2000).fadeIn(700);
-		$("#titleBox").hide().delay(200).css("visibility","visible").delay(200).fadeIn();
+		$("#bg0").stop().delay(1000).fadeOut(700);
+		$("#subtitle").stop().hide().delay(2000).fadeIn(700);
+		$("#titleBox").stop().hide().delay(200).css("visibility","visible").delay(200).fadeIn();
 		$(".time[value='30']").css("opacity","1");
 	};
 	
@@ -369,20 +386,19 @@
 */
 	
 	function next(){ //function to transiton to next scene
-		$(".Scene" + scene).fadeOut(300); // current scene fade out
+		$(".Scene" + scene).stop().fadeOut(300); // current scene fade out
 		// next scene fade in
-		$(".Scene" + (scene + 1)).hide().delay(400).css("visibility","visible").fadeIn(300);
+		$(".Scene" + (scene + 1)).stop().hide().delay(400).css("visibility","visible").fadeIn(300);
 		scene++;
 		
 		if(scene == 3){
-			$("#bg01").delay(750).fadeOut(2000);
-			$("#bg02").delay(750).fadeOut(2000);
+			$("#bgBlack").stop().delay(400).animate({"height":"98%", "top":"1%"},250).fadeOut(500);
 		}
 	}	
 	
 	function GoTo(s){ //function to transiton to next scene
 		
-		$(".Scene" + scene).fadeOut(300); // current scene fade out
+		$(".Scene" + scene).stop().fadeOut(300); // current scene fade out
 		
 		if(scene == 'T'){ // if timer overlay is visible
 			$(".enter").prop("disabled",false); //re-enable buttons
@@ -390,7 +406,7 @@
 			$("#sBox").css("filter","blur(0px)"); // blur scene S
 			$(".home").css("filter","blur(0px)"); // blur home button
 		}
-		else{$(".Scene" + s).hide().delay(400).css("visibility","visible").fadeIn(300);} // show scene given
+		else{$(".Scene" + s).stop().hide().delay(400).css("visibility","visible").fadeIn(300);} // show scene given
 		scene = s;
 	}
 	
@@ -399,7 +415,7 @@
 		clockStart(t);
 		scene = 'T';
 		
-		$(".SceneT").hide().delay(200).css("visibility","visible").fadeIn(300); // display timer overlay
+		$(".SceneT").hide().stop().delay(200).css("visibility","visible").fadeIn(300); // display timer overlay
 		$(".Scene3").css("filter","blur(8px)"); // blur scene 3
 		$("#sBox").css("filter","blur(8px)"); // blur scene S
 		$(".home").css("filter","blur(8px)"); // blur home button
@@ -407,14 +423,15 @@
 	
 	function home(){ //go home
 	
-		$(".Scene1").fadeIn(300); // fade in scene 1
-		$(".Scene" + scene).fadeOut(300); // fade out current scene
+		$(".Scene" + scene).stop().fadeOut(300); // fade out current scene
+		$(".Scene1").stop().delay(350).fadeIn(300); // fade in scene 1
+		$("#bgBlack").stop().delay(50).fadeIn(100).delay(200).animate({"height":"97%", "top":"1.5%"},250);
 		scene = 1;
 
 		if (scene == 'S'){
-			$(".Scene1").fadeIn(300); // fade in scene 1
-		$(".Scene" + scene).fadeOut(300); // fade out current scene
-		scene = 1;
+			$(".Scene1").stop().fadeIn(300); // fade in scene 1
+			$(".Scene" + scene).stop().fadeOut(300); // fade out current scene
+			scene = 1;
 		}
 		clicked = true;
 	}
@@ -511,9 +528,16 @@
 =================================================================================================
 */
 	
-	$("#start").click(function(){
+	$("button").click(function(){
 		bg1.play();
 		bg2.play();
+		bg3.play();
+		$("#bg01").stop().fadeOut(50);
+		$("#bg02").stop().fadeOut(50);
+	});
+	
+	$("button").click(function(){
+		$("#cash").css("animation","none");
 	});
 	
 	$("#skip").click(function(){ //skip button
@@ -529,19 +553,24 @@
 	});
 	
 	$("#s1").click(function(){
-		if (clicked) {GoTo("S");} 
+		if (clicked) {
+			$("#bgBlack").stop().animate({"height":"100%", "top":"0%"},250).delay(400).fadeOut(400);
+			GoTo("S");
+		} 
   		clicked= !clicked;	
 	});
-
+	
 	$("#s3").click(function(){
-		if (clicked || scene == 3) {GoTo("S");} 
+		if (clicked) {
+			$("#bgBlack").stop().fadeIn(200).animate({"height":"100%", "top":"0%"},250).delay(400).fadeOut(400);
+			GoTo("S");
+		} 
   		clicked= !clicked;	
 	});
 
 	$(".next").click(function(){ // event listener for any button with the next class
 		if (clicked){next();} // run the "next" function
 		clicked = !clicked;
-		$("#cash").css("animation","none");
 	});
 	
 	$(".home").click(function(){ // event listener for home button / home class
@@ -580,7 +609,7 @@
 	$("#access").click(function(){ // scene 2 form button event listener
 		if($("#visitors > input").val().includes("@aggies.ncat.edu")){ // validates if the email is an aggie one (but easy to bypass)
 			$("#visitors").submit(); // submits the user email to the "visitors" form
-			$("#entrants > input").val($("#visitors > input").val()); // populates the user email into the "entrants" form input in scene 3
+			$("#displayName").text($("#visitors > input").val()); // populates the user email into the "entrants" form input in scene 3
 			if (!clicked) {next();} 
   			clicked= !clicked;
 		}
