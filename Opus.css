@@ -3,16 +3,16 @@
 
 
 @-webkit-keyframes start {
-  from {color: #2ee600; text-shadow: 6px 10px 5px black;}
+  from {color: #2ee600; text-shadow: 0.6vh 1vh 0.5vh black;}
   to {color: white;}
 }
 
 @keyframes float { /* Home Page Logo Float Animation */
-	50% {transform: translateY(20px);}
+	50% {transform: translateY(2vh);}
 }
 
 @keyframes float2 { /* Home Page Logo Float Animation */
-	50% {transform: translateY(10px);}
+	50% {transform: translateY(1vh);}
 }
 
 /*
@@ -31,7 +31,7 @@ body {
 	width: 100%;
 	height: 100vh;	
 	position: absolute;
-	align-content: center;
+	align-items: center;
 	justify-content: center;
 	display: flex;
 	overflow: hidden;
@@ -65,13 +65,21 @@ body {
 #bg1 {
 	position: absolute;
 	z-index: -3;
+	width: 500%;
 }
 
 #bg2 {
 	position: absolute;
 	z-index: -2;
-	filter: contrast(85%) blur(300px) saturate(200%) brightness(110%) hue-rotate(20deg);
-	opacity: 0.95;
+	filter: contrast(85%) blur(5vh) saturate(200%) brightness(80%) hue-rotate(20deg);
+	opacity: 0.85;
+	width: 150%;
+}
+
+#bgBlack {
+	width: 100%;
+	height: 97%;
+	top: 1.5%;
 }
 
 /*
@@ -91,100 +99,91 @@ body {
 
 #info {
 	position: absolute;
-	top: 8px;
-	left: 8px;
+	top: 3%;
+	left: 1%;
 	padding: 0px 0px;
-	height: 50px;
-	width: 50px;
+	height: 5vh;
+	width: 5vh;
 	z-index: 1;
-	border-radius: 30px;
+	border-radius: 30vh;
 	border-style: hidden;
-	font-size: 30px;
+	font-size: 3vh;
 	opacity: 0.75;
 }
 
 #s1 {
-	top: 8px;
-	right: 8px;
+	top: 3%;
+	right: 1%;
 }
 
 #titleBox {
 	position: absolute;
 	visibility: hidden;
 	z-index: 6;
-	transform: translateY(-155px);
+	transform: translateY(-15.5vh);
 }
 
 #title {
     text-align: center;
-    font-size: 135px;
+    font-size: 13.5vh;
     font-family: 'Rubik', sans-serif;
 	font-style: italic;
 	font-weight: 650;
     color: black;
 	animation: float 6s ease-in-out infinite normal;
-	text-shadow: 6px 10px 5px #ffffff;
+	text-shadow: 0.8vh 0.8vh 0.3vh rgb(40 40 40);
 }
 
 #black {
 	color: white;
-	text-shadow: 6px 10px 5px #000000;
+	text-shadow: 0.8vh 0.8vh 0.3vh rgb(40 40 40);
 	cursor: default;
 }
 
 #black:hover {
 	color: black;
-	text-shadow: 6px 10px 5px #ffffff;
+	text-shadow: 0.8vh 0.8vh 0.3vh #fff;
 }
 
 #cash {
 	position: relative;
-	margin-left: 35px;
+	margin-left: 3.5vh;
 	color: white;
-	text-shadow: 6px 10px 5px #000000;
+	text-shadow: 0.8vh 0.8vh 0.3vh rgb(40 40 40);
 	animation: start 1.3s linear normal;
 	cursor: default;
 }
 
 #cash:hover {
 	color: #2ee600;
-	text-shadow: 6px 10px 5px black;
+	text-shadow: 0.8vh 0.8vh 0.3vh rgb(40 40 40);
 }
 
 #subtitle {
 	position: absolute;
 	width: 100%;
-	top: 150px;
+	top: 15vh;
 	font-weight: 450;
-	font-size: 40px;
+	font-size: 4vh;
 	color: white;
-	text-shadow: 3px 4px 3px #000000;
+	text-shadow: 0.45vh 0.45vh 0.1vh rgb(40 40 40);
 	cursor: default;
 }
 
-.startBox {
+#startBox {
 	position: absolute;
 	z-index: 1;
-	transform: translateY(95px);
-	height: 86px;
+	transform: translateY(9.5vh);
+	height: 8.6vh;
 }
 
 #start {
-	padding: 16px 32px;
-	border-radius: 40px; 
+	padding: 1.6vh 3.2vh;
+	border-radius: 40vh; 
 	background: #383838;
 	color: var(--text);
-	font-size: 50px;
+	font-size: 5vh;
 }
-
-#guest {
-	position: relative;
-	font-size: 25px;
-	top: 315px;
-}
-
-#guest:hover { color: rgba(89,89,89,0.59); text-decoration: underline;}
-
 
 /*
 =================================================================================================
@@ -195,7 +194,7 @@ body {
 .Scene2 {
 	visibility: hidden;
 	
-	height: 500px;
+	height: 100vh;
 	width: 100%;
 	position: absolute;
 	align-items: center;
@@ -206,10 +205,10 @@ body {
 
 #c2 {
 	position: absolute;
-	font-size: 50px;
-	top: 245px;
+	font-size: 6.45vh;
+	top: 28vh;
 	text-align: center;
-	width: 770px;
+	width: 75vh;
 	animation: float2 6s ease-in-out infinite normal;
 	cursor: default;
 	text-shadow: 4px 4px 3px #000000;
@@ -218,23 +217,55 @@ body {
 #formBox {
 	position: fixed;
 	width: 100%;
-	height: 100px;
-	top: 450px;
+	height: 11%;
+	top: 53%;
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
+}
+
+#visitors {
+	padding: 0;
+    height: 9vh;
+    display: flex;
+    align-items: center;
 }
 
 #access {
-	height: 86px;
-	margin-left: 10px;
-	border-radius: 40px;
+	height: 8.6vh;
+	border-radius: 40vh;
 	border-style: hidden;
 }
 
-#guest {
-	cursor: pointer;
-	left: 238px;
+#enterBox {
+	display: flex;
+	justify-content: center;
+	margin-left: 1vh;
 }
+
+#bg3 {
+	width: 15.7vh;
+	height: 2.6vh;
+	position: absolute;
+	z-index: 0;
+	top: 10.2vh;
+	object-fit: cover;
+}
+
+#guest {
+	position: absolute;
+	top: 86%;
+	width: 15.2vh;
+	font-size: 2.54vh;
+	font-weight: 100;
+	cursor: pointer;
+	background-color: black;
+	color: white;
+	mix-blend-mode: darken;
+	padding: 0.3vh 0.4vh;
+}
+
+#guest:hover {text-decoration: underline;}
 
 /*
 =================================================================================================
@@ -245,75 +276,107 @@ body {
 .Scene3 {
 	visibility: hidden;
 	
-	height: 960px;
+	height: 100vh;
 	width: 100%;
 	position: absolute;
 	z-index: 2;
+	align-content: center;
 	justify-content: center;
 	display: flex;
 	filter: blur(0px);
 }
 
+#b3 {
+	width: 100%;
+	height: 26%;
+	top: 1%;
+}
+
+#b32 {
+	width: 100%;
+	height: 26%;
+	bottom: 1%;
+}
+
+#g3 {
+	width: 100%;
+	height: 1%;
+	top: 0;
+}
+
+#g32 {
+	width: 100%;
+	height: 1%;
+	bottom: 0;
+}
+
 .c3 {
 	position: absolute;
-	font-size: 100px;
-	margin-left: -15px;
-	top: 2px;
-	text-shadow: 5.5px 5.5px 5px #000000;
+	font-size: 9vh;
+	margin-left: -1vh;
+	top: 0.1vh;
+	text-shadow: 0.52vh 0.52vh 0.5vh #000000;
 }
 
 .t3 {
 	position: absolute;
-	font-size: 50px;
-	top: 153px;
+	font-size: 4.65vh;
+	top: 44.4%;
 	text-align: center;
 }
 
 .t32 {
 	position: absolute;
-	top: 203px;
+	top: 18.3vh;
 	text-align: center;
-	font-size: 30px;
-	cursor: pointer;
+	font-size: 2.65vh;
 }
 
 .enter {
 	position: absolute;
 	align-self: center;
-	top: 267px;
-	border-radius: 40px;
+	top: 76.7%;
+	border-radius: 40vh;
 	border-style: hidden;
+	width: 18.98vh;
+	height: 7.67vh;
 }
 
-
-#entrants {
+#displayName {
 	position: absolute;
-	right: 8px;
-	top: 25px;
+	right: 0.5%;
+	top: 2%;
+	height: 6.1%;
+	max-width: 39vh;
+	color: #909090;
+	cursor: default;
+	border-radius: 30vh;
+	font-size: 2.6vh;
+	padding: 0.1vh 2.1vh;
+	overflow: hidden;
+	opacity: 0.75;
 }
 
 #carousel {
 	position: absolute;
-	top: 265px;
+	top: 27%;
 	width: 100%;
-	height: 450px;
+	height: 44.3%;
 	align-content: center;
 	
 
-	background-color: rgba(198,198,198,0.60);
-	border-bottom: 10px solid rgba(50,50,50,0.7);
-	border-top: 7px solid rgba(50,50,50,0.7);
+	background-color: transparent;
+	border-bottom: 1vh solid rgba(50,50,50,0.7);
+	border-top: 0.7vh solid rgba(50,50,50,0.7);
 }
 
 #caroContainer {	
-	height: 435px;
+	height: 98%;
 	justify-content: flex-start;
 	align-content: center;
 	display: flex;
 	overflow-x: auto;
 	overflow-y: hidden;
-	margin-top: 4px;
-	margin-bottom: 20px;
 }
 
 #raf {
@@ -327,22 +390,24 @@ body {
 .raffle {
 	flex-shrink: 0;
 	position: relative;
-	margin-top: 60px;
-	margin-bottom: 60px;
-	height: 330px;
-	width: 310px;
+	margin-top: 4vh;
+	height: 75%;
+	width: 28vh;
 	justify-content: center;
 	display: flex;
+	align-self: center;
 }
 
 .line {
 	display: inline-block;
-	height: 370px;
-	width: 4px;
-	margin: 40px 25px;
-	border-radius: 20px;
+	height: 87%;
+	width: 0.37vh;
+	margin: 0% 2.25vh;
+	border-radius: 30vh;
 	background-color: rgba(75,75,75,1.00);
 	flex-shrink: 0;
+	align-self: center;
+	transform: translateY(3%);
 }
 
 .spacer {
@@ -357,20 +422,21 @@ body {
 
 .prize {
 	position: relative;
-	font-size: 25px;
-	top: 107px;
-	text-shadow: 4px 4px 3px #000000;
+	font-size: 2.25vh;
+	top: 30%;
+	height: fit-content;
+	text-shadow: 0.35vh 0.35vh 0.25vh #000000;
 }
 
 #s3 {
-	bottom: 8px;
-	right: 8px;
+	bottom: 3%;
+	right: 1%;
 }
 
 /* width */
 ::-webkit-scrollbar {
-	height: 10px;
-	margin-bottom: 20px;
+	height: 1vh;
+	margin-bottom: 2vh;
 }
 
 /* Track */
@@ -380,14 +446,15 @@ body {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	background: rgba(95,95,95,.35);
-	border-radius: 10px;
+	background: rgba(95,95,95,.5);
+	border-radius: 30vh;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:active {
 	background: rgba(50,50,50,.4); 
 }
+
 /*
 =================================================================================================
 =======================================  Scene T  ===============================================
@@ -456,6 +523,17 @@ body {
 	visibility: hidden;
 }
 
+#bS {
+	width: 20%;
+	height: 100%;
+	left: 0;
+}
+
+#bS2 {
+	width: 20%;
+	height: 100%;
+	right: 0%;
+}
 
 #countBox {
 	display: flex;
@@ -475,9 +553,9 @@ body {
 	display: flex;
 	position: absolute;
 	z-index: 5;
-	background-color: rgba(198,198,198,0.60);
-	border-left: 10px solid rgba(50,50,50,0.7);
-	border-right: 10px solid rgba(50,50,50,0.7);
+	background-color: transparent;
+	border-left: 1vh solid rgba(50,50,50,0.7);
+	border-right: 1vh solid rgba(50,50,50,0.7);
 	overflow-y: scroll;
 	overflow-x: hidden;
 }
@@ -495,15 +573,15 @@ body {
 }
 
 #UpDownBox {
-	height: 170px;
+	height: 11.2vw;
 	align-self: center;
-	transform: translateY(7px);
+	transform: translateY(0.6vw);
 }
 
 #up {
-	border-top-left-radius: 30px;
-	border-top-right-radius: 30px;
-	margin-bottom: 10px; 
+	border-top-left-radius: 2.45vw;
+	border-top-right-radius: 2.45vw;
+	margin-bottom: 0.7vw; 
 }
 
 #up:hover {
@@ -511,8 +589,8 @@ body {
 }
 
 #down {
-	border-bottom-left-radius: 30px;
-	border-bottom-right-radius: 30px;
+	border-top-left-radius: 2.45vw;
+	border-top-right-radius: 2.45vw;
 }
 
 #down:hover{
@@ -521,20 +599,20 @@ body {
 
 .cS{
 	position: absolute;
-	font-size: 50px;
-	text-align: center;
-	width: 770px;
-	animation: float2 6s ease-in-out infinite normal;
-	cursor: default;
-	text-shadow: 4px 4px 3px #000000;
+    font-size: 3.2vw;
+    text-align: center;
+    width: 82%;
+    animation: float2 6s ease-in-out infinite normal;
+    cursor: default;
+    text-shadow: 0.2vw 0.4vw 0.2vw #000000;
 }
 
 #cS1 {
-	top: 100px;
+    top: 8.3vw;
 }
 
 #cS2 {
-	top: 650px;
+	top: 49vw;
 }
 
 #timeBox {
@@ -567,6 +645,8 @@ body {
 	height: auto;
 	top: 1040px;
 	font-size: 156px;
+	font-weight: 600;
+	color: rgba(44,44,44,0.79);
 }
 
 #cS4 {
@@ -801,34 +881,34 @@ body {
 }
 
 .grey {
-	color: rgba(44,44,44,0.79);
+	color: rgba(44,44,44,0.75);
 }
 
 .home {
 	position: absolute;
-	top: 8px;
-	left: 8px;
+	top: 3%;
+	left: 1%;
 	padding: 0px 0px;
-	height: 50px;
+	height: 5vh;
 	z-index: 1;
-	border-radius: 30px;
+	border-radius: 30vh;
 	border-style: hidden;
 }
 
 .house {
-	height: 45px;
-	width: 45px;
-	margin: 0px 2.5px;
+	height: 4.5vh;
+	width: 4.5vh;
+	margin: 0px 0.25vh;
 }
 
 .icon {
 	position: absolute;
-	top: -13px;
+	top: -1.3vh;
 	right: 0px;
 	padding: 0px 0px;
-	height: 35px;
+	height: 3.5vh;
 	z-index: 1;
-	border-radius: 30px;
+	border-radius: 30vh;
 	border-style: hidden;
 	background-color: deepskyblue;
 	display: flex;
@@ -840,63 +920,63 @@ body {
 .icon:hover {
 	opacity: 1;
 	cursor: default;
-	box-shadow: 1px 3px 4px rgba(0,0,0,0.3);
+	box-shadow: 0.1vh 0.3vh 0.4vh rgba(0,0,0,0.3);
 }
 
 .food {
-	height: 30px;
-	width: 30px;
-	margin: 2px 2.5px;
+	height: 3vh;
+	width: 3vh;
+	margin: 0.2vh 0.25vh;
 	display: none;
 }
 
 .art {
-	height: 27px;
-	width: 27px;
-	margin: 4px 4px;
+	height: 2.7vh;
+	width: 2.7vh;
+	margin: 0.4vh 0.4vh;
 	display: none;
 }
 
 .apparel {
-	height: 25px;
-	width: 25px;
-	margin: 5px 5px;
+	height: 2.5vh;
+	width: 2.5vh;
+	margin: 0.5vh 0.5vh;
 	display: none;
 }
 
 .other {
-	height: 25px;
-	width: 25px;
-	margin: -4px 5px;
-	font-size: 32px;
-	transform: translateX(1px);
-	text-shadow: 1px 3px 4px rgba(0,0,0,0.3);
+	height: 2.5vh;
+	width: 2.5vh;
+	margin: -0.4vh 0.5vh;
+	font-size: 3.2vh;
+	transform: translateX(0.1vh);
+	text-shadow: 0.1vh 0.3vh 0.4vh rgba(0,0,0,0.3);
 }
 
 input {
-	width:400px;
-	height:50px;
-	font-size: 28px;
+	width: 40vh;
+	height: 5vh;
+	font-size: 2.8vh;
 	font-family: 'Fredoka One', cursive;
-	padding: 16px 32px;
-	letter-spacing: 1.5px;
-	border-radius: 40px;
+	padding: 1.6vh 3.2vh;
+	letter-spacing: 0.15vh;
+	border-radius: 40vh;
 	border-style: hidden;
 }
 
 .sponsor {
 	position: absolute;
-	padding: 0px 20px;
-	height: 50px;
+	padding: 0px 2vh;
+	height: 5vh;
 	z-index: 1;
-	border-radius: 30px;
+	border-radius: 30vh;
 	border-style: hidden;
-	font-size: 20px;
+	font-size: 2vh;
 	opacity: 0.75;
 }
 
 button:active {
-	box-shadow: var(--shadow-hover), inset 0 0 40px #6b6b6b;
+	box-shadow: var(--shadow-hover), inset 0 0 4vh #6b6b6b;
 	background-color: rgb(0,0,0); 
 	--dark: rgb(60,60,60);
 }
@@ -904,6 +984,16 @@ button:active {
 polygon {
 	fill: var(--dark) !important;
 	transition: fill var(--duration) ease, -webkit-transform var(--duration) ease;
+}
+
+.black {
+	background-color: black;
+	position: absolute;
+}
+
+.screen {
+	background-color: rgba(0,0,0,0.4);
+	position: absolute;
 }
 /*
 =================================================================================================
@@ -931,11 +1021,11 @@ polygon {
 button {
   --dark: grey;
   --text: #FFF;
-  --font-size: 45px;
+  --font-size: 4.3vh;
   --duration: .5s;
-  --shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.5);
-  --shadow-hover: 0 4px 15px -2px rgba(0, 0, 0, 1);
-  padding: 16px 32px;
+  --shadow: 0 0.2vh 0.8vh -0.1vh rgba(0, 0, 0, 0.5);
+  --shadow-hover: 0 0.4vh 1.5vh -0.2vh rgba(0, 0, 0, 1);
+  padding: 1.6vh 3.2vh;
   font-family: 'Fredoka One', cursive;
   line-height: var(--font-size);
   font-size: var(--font-size);
@@ -944,7 +1034,7 @@ button {
   border: none;
   cursor: pointer;
   text-decoration: none;
-  letter-spacing: 1.5px;
+  letter-spacing: 0.15vh;
   background: #383838;
   color: var(--text);
   box-shadow: var(--shadow);
@@ -995,10 +1085,10 @@ button.enter {
 }
 
 button:hover {
-  --y: -4px;
+  --y: -0.4vh;
   --shadow: var(--shadow-hover);
-  --move: -4px;
-  --shadow-active: 0 3px 1px rgba(0, 0, 0, .2);
+  --move: -0.4vh;
+  --shadow-active: 0 0.3vh 0.1vh rgba(0, 0, 0, .2);
 }
 button:hover span {
   -webkit-animation: move var(--duration) linear var(--d);
