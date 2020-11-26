@@ -141,7 +141,7 @@ body {
 }
 
 #black:hover {
-	color: white;
+	color: black;
 	text-shadow: 0.8vh 0.8vh 0.3vh #fff;
 }
 
@@ -832,7 +832,7 @@ body {
 	padding: 0px 0px;
 	height: 3.3vw;
 	z-index: 1;
-	border-radius: 30vw;
+	border-radius: 30v;
 	border-style: hidden;
 	background-color: deepskyblue;
 	display: flex;
