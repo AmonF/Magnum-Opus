@@ -242,15 +242,15 @@
 		<div id="sBox">
 			<div class="caption cS" id="cS1">Select how many students you would like exposure to</div>
 			<div id="countBox">
-				<div id="count">40</div>
+				<div id="count">100</div>
 				<div id="UpDownBox">
 					<button id="up">
-						<svg height="35" width="40">
+						<svg height="3.7vw" width="4vw">
 							<polygon points="20,0 0,35 40,35" style="fill:grey;"/>
 						</svg>
 					</button>
 					<button id="down">
-						<svg height="35" width="40">
+						<svg height="3.7vw" width="4vw">
 							<polygon points="20,35 0,0 40,0" style="fill:grey;"/>
 						</svg>
 					</button>
@@ -262,7 +262,7 @@
 				<button class="time" value="30">30s</button>
 				<button class="time" value="60">1m</button>
 			</div>
-			<div class="captionB" id="price">$20.00</div>
+			<div class="captionB" id="price">$50.00</div>
 			<div class="captionB" id="cS3">¢50/student</div>
 			<div class="caption cS" id="cS4">Select which category your business best fits under</div>
 			<div id="catBox">
@@ -286,22 +286,22 @@
 			</div>
 			
 			<div id="carouselP">
-				<div class="line"></div>
+				<div class="lineP"></div>
 				<div class="raffle" id="raffleP">
-					<button class="icon">
-						<img class="food" src="fork.png">
-						<img class="art" src="brush.png">
-						<img class="apparel" src="shirt.png">
-						<span class="other">?</span>
+					<button class="iconP">
+						<img class="foodP" src="fork.png">
+						<img class="artP" src="brush.png">
+						<img class="apparelP" src="shirt.png">
+						<span class="otherP">?</span>
 					</button>
-					<div class="caption c3" id="pPrice">$10</div>
-					<div class="prize caption"> prize! </div>
-					<div class="captionB t3" id="pEntrants"> 0/40 </div>
-					<div class="captionB t32"> entrants </div>
+					<div class="caption cP" id="pPrice">$10</div>
+					<div class="prizeP caption"> prize! </div>
+					<div class="captionB tP" id="pEntrants"> 0/40 </div>
+					<div class="captionB tP2"> entrants </div>
 					<button id="preview">Preview</button>
 				</div>
-				<div class="line"></div>
-				<div class="spacer"></div>
+				<div class="lineP"></div>
+<!--				<div class="spacer"></div>-->
 			</div>
 				
 			<div id="bankBox">
@@ -318,7 +318,7 @@
 					<div id="cardInfo">
 						<input class="sponsorInfo" type="text" id="cardNum">
 						<input class="sponsorInfo" type="text" id="month" placeholder="MM" maxlength="2">
-						<span class="caption grey">/</span>
+						<span class="caption grey" id="slash">/</span>
 						<input class="sponsorInfo" type="text" id="year" placeholder="YY" maxlength="2">
 						<input class="sponsorInfo" type="text" id="cvv" placeholder="CVC" maxlength="3">
 					</div>
@@ -370,8 +370,7 @@
 	   
 	var scene = 1; // start on scene 1
 	var time; // declare time variable
-	var angle = 160;
-	var count = 40;
+	var count = 100;
 	var clicked = true;
 	var price = count/4.0;
 	var raffle;
@@ -514,12 +513,15 @@
 	}
 	
 	function dragIn(event){
-		event.target.style.background = "rgba(83,200,255,.65)";
-		$(".plus").css("background","transparent");
+		event.target.style.background = "rgba(83,200,255,.85)";
+		event.target.style.border = "0.4vw dashed #66e0ff";
+		$(".plus").css({"background":"transparent","color":"white","border":"none"});
 	}	
 	
 	function dragOut(event){
-		event.target.style.background = "rgba(202,232,239,0.55)";
+		event.target.style.background = "rgba(232,232,232,1)";
+		event.target.style.border = "0.4vw solid rgb(118 118 118)";
+		$(".plus").css({"background":"transparent","color":"rgb(118 118 118)","border":"none"});
 	}
 	
 /*
@@ -669,9 +671,9 @@
 	});
 	
 	$(".dragBox").hover(function(){
-		$(this).css("background","rgba(202,232,239,0.75)");
+		$(this).css("background","rgba(232,232,232,0.75)");
 	},  function(){
-		$(this).css("background","rgba(202,232,239,0.55)");
+		$(this).css("background","rgba(232,232,232.55)");
 	});
 
 
